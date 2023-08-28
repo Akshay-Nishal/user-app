@@ -18,10 +18,10 @@ function App() {
       setUsersList([...usersList,newUser])
     }
   return (
-    <div>
+    <React.Fragment>
       <AddUser updateData={updateUsers}/>
       <UsersList users={usersList}/>
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -3,6 +3,7 @@ import Card from '../UI/Card'
 import classes from './AddUser.module.css'
 import Button from '../UI/Button'
 import ErrorModel from './ErrorModel'
+import Wrapper from '../Helpers/Wrapper'
 
 
 function AddUser(props) {
@@ -63,23 +64,20 @@ function AddUser(props) {
         setError(false)
     }
   return (
-    <div>
-        {(error)?
-        <ErrorModel onChange={errorHandler} title={error.title} message={error.message}/>
-        :
-        <></>
-        }
-
-    <Card className={classes.input}>
-        <form onSubmit={submitHandeler}>
-            <label htmlFor="username">Username</label>
-            <input onChange={usernameChange} value={enteredUserName} type="text" name="username" id="username" />
-            <label htmlFor="age">Age (Years)</label>
-            <input onChange={userageChange} value={enteredUserAge} type="number" id="age" />
-            <Button type='submit'>Add User</Button>
-        </form>
-    </Card>
-    </div>
+    <Wrapper>
+        {error &&(
+            <ErrorModel onConfirm={errorHandler} title={error.title} message={error.message}/>
+        )}
+        <Card className={classes.input}>
+            <form onSubmit={submitHandeler}>
+                <label htmlFor="username">Username</label>
+                <input onChange={usernameChange} value={enteredUserName} type="text" name="username" id="username" />
+                <label htmlFor="age">Age (Years)</label>
+                <input onChange={userageChange} value={enteredUserAge} type="number" id="age" />
+                <Button type='submit'>Add User</Button>
+            </form>
+        </Card>
+    </Wrapper>
   )
 }
 

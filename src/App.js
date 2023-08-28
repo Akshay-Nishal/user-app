@@ -4,18 +4,17 @@ import UsersList from './Components/Users/UsersList';
 
 
 function App() {
-  const [usersList,setUsersList] = useState(
-    [
-      {name:'Akshay',
+  const [usersList,setUsersList] = useState([
+    {
+      id:Math.random(),
+      college:"CGC",
+      name:'Akshay',
       age:24}
-    ]
-    )
+    ])
     const updateUsers = (newUser) =>{
       console.log(newUser)
-      // let x = usersList
-      // x.append(newUser)
-      // setUsersList(prevUsers=>[...prevUsers,newUser])
-      setUsersList([...usersList,newUser])
+      console.log(newUser.college)
+      setUsersList(prevUsers=>[...prevUsers,newUser])
     }
   return (
     <React.Fragment>
